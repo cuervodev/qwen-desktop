@@ -1,6 +1,8 @@
 # Qwen Desktop
 
-A premium desktop application for [Qwen AI](https://chat.qwen.ai/) built with Electron. Access Qwen's powerful AI directly from your desktop with persistent login sessions.
+A native, cross-platform desktop client for [Qwen AI](https://chat.qwen.ai/), built with Electron.
+
+Run Qwen directly from your desktop with persistent sessions, system tray integration, keyboard shortcuts, dark mode, and automatic updates.
 
 ## ✨ Features
 
