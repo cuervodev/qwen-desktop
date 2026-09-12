@@ -12,6 +12,7 @@ const {
 } = require('electron');
 const path = require('path');
 const os = require('os');
+const { checkForUpdates, getLocalVersion } = require('./updater');
 
 // ─── Windows GPU / cache permission fixes ────────────────────────────────────
 // Must be called BEFORE app.whenReady()
@@ -106,6 +107,11 @@ function createMainWindow() {
 
   buildMenu();
   createTray();
+
+  // Comprobar actualizaciones automáticamente en segundo plano tras iniciar
+  setTimeout(() => {
+    checkForUpdates({ silent: true, parentWindow: mainWindow });
+  }, 3500);
 }
 
 // ─── Custom CSS injected into the Qwen web page ──────────────────────────────
@@ -333,12 +339,39 @@ function buildMenu() {
       label: 'Help',
       submenu: [
         {
+          label: 'Check for Updates...',
+          click: () => checkForUpdates({ silent: false, parentWindow: mainWindow }),
+        },
+        {
+          label: 'Changelog',
+          click: () => shell.openExternal('https://github.com/cuervodev/qwen-desktop/blob/main/CHANGELOG.md'),
+        },
+        { type: 'separator' },
+        {
           label: 'Visit Qwen Website',
           click: () => shell.openExternal('https://qwen.ai/'),
         },
         {
           label: 'Report Issue',
-          click: () => shell.openExternal('https://github.com/'),
+          click: () => shell.openExternal('https://github.com/cuervodev/qwen-desktop/issues'),
+        },
+        { type: 'separator' },
+        {
+          label: 'About Qwen Desktop',
+          click: () => {
+            dialog.showMessageBox(mainWindow, {
+              type: 'info',
+              title: 'About Qwen Desktop',
+              message: `Qwen Desktop v${getLocalVersion()}`,
+              detail: 'Desktop application for Qwen AI with persistent sessions.\n\nDeveloped by CuervoDev\nLicensed under MIT.',
+              buttons: ['OK', 'GitHub Repository'],
+              defaultId: 0,
+            }).then(({ response }) => {
+              if (response === 1) {
+                shell.openExternal('https://github.com/cuervodev/qwen-desktop');
+              }
+            });
+          },
         },
       ],
     },
@@ -368,6 +401,10 @@ function createTray() {
         mainWindow?.show();
         mainWindow?.webContents.loadURL('https://chat.qwen.ai/');
       },
+    },
+    {
+      label: 'Check for Updates...',
+      click: () => checkForUpdates({ silent: false, parentWindow: mainWindow }),
     },
     { type: 'separator' },
     {

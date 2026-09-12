@@ -11,6 +11,7 @@ A premium desktop application for [Qwen AI](https://chat.qwen.ai/) built with El
 - ⚡ **Single instance** – Only one window, always brought to focus
 - 🔗 **External link handling** – Non-Qwen links open in your default browser
 - 🧹 **Easy logout** – Clear session / log out from the menu
+- 🔄 **Auto-updates** – Automatic background version checking and manual update installer from GitHub
 - ⌨️ **Keyboard shortcuts** – Ctrl+N for new chat, Ctrl+Q to quit, and more
 
 ## 🚀 Getting Started
@@ -48,6 +49,9 @@ Built installers will be in the `dist/` folder.
 Qwen Desktop/
 ├── main.js          # Main Electron process
 ├── preload.js       # Secure bridge between renderer and main
+├── updater.js       # Auto-update and version checking engine
+├── version.json     # Application version metadata
+├── CHANGELOG.md     # Release notes and history
 ├── package.json     # Project config & build settings
 ├── assets/
 │   ├── icon.png     # App icon (PNG, 512×512 recommended)

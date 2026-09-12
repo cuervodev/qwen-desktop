@@ -1,6 +1,6 @@
 {
   "name": "qwen-desktop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Qwen AI Desktop App - Access chat.qwen.ai directly from your desktop with persistent sessions",
   "main": "main.js",
   "author": "Qwen Desktop",
@@ -19,6 +19,11 @@
     "appId": "com.qwen.desktop",
     "productName": "Qwen Desktop",
     "icon": "assets/icon.png",
+    "publish": {
+      "provider": "github",
+      "owner": "cuervodev",
+      "repo": "qwen-desktop"
+    },
     "directories": {
       "output": "dist"
     },

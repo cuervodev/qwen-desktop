@@ -1,0 +1,7 @@
+{
+  "version": "1.0.1",
+  "name": "Qwen Desktop",
+  "releaseDate": "2026-09-12",
+  "releaseNotes": "Versión 1.0.1:\n- Sistema de actualización automática integrado con GitHub\n- Comprobación manual de actualizaciones desde el menú y bandeja del sistema\n- Corrección de enlaces de reporte de problemas (GitHub Issues)\n- Registro de cambios (CHANGELOG.md) añadido\n- Optimización de gestión de sesiones e interfaz frameless",
+  "downloadUrl": "https://github.com/cuervodev/qwen-desktop/releases/latest"
+}
