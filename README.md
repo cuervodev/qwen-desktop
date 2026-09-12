@@ -111,7 +111,6 @@ qwen-desktop/
 ├── package.json         # Project configuration
 ├── assets/
 │   ├── icon.png         # Application icon
-│   ├── icon.ico         # Windows icon
 │   └── tray-icon.png    # System Tray icon
 └── dist/                # Generated Windows builds
 ```
