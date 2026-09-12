@@ -1,78 +1,176 @@
 # Qwen Desktop
 
-A native, cross-platform desktop client for [Qwen AI](https://chat.qwen.ai/), built with Electron.
+A native **Windows desktop client for Qwen AI**, built with Electron.
 
-Run Qwen directly from your desktop with persistent sessions, system tray integration, keyboard shortcuts, dark mode, and automatic updates.
+Qwen Desktop brings the Qwen web experience directly to your Windows desktop, with persistent sessions, System Tray integration, keyboard shortcuts, automatic updates, and a clean native-style interface.
+
+> **Unofficial project.** Qwen Desktop is not affiliated with or endorsed by Qwen or Alibaba.
+
+---
 
 ## ✨ Features
 
-- 🔐 **Persistent sessions** – Log in once, stay logged in forever (cookies saved automatically)
-- 🖥️ **Native desktop experience** – Frameless window with custom title bar
-- 🔔 **System tray** – Minimize to tray, always accessible
-- 🌙 **Dark mode** – Native OS dark/light mode support  
-- ⚡ **Single instance** – Only one window, always brought to focus
-- 🔗 **External link handling** – Non-Qwen links open in your default browser
-- 🧹 **Easy logout** – Clear session / log out from the menu
-- 🔄 **Auto-updates** – Automatic background version checking and manual update installer from GitHub
-- ⌨️ **Keyboard shortcuts** – Ctrl+N for new chat, Ctrl+Q to quit, and more
+* 🖥️ **Native Windows experience** — Frameless desktop window with a custom title bar.
+* 🔐 **Persistent sessions** — Stay logged in between launches using locally stored cookies and session data.
+* 🔔 **System Tray integration** — Minimize Qwen Desktop to the Windows system tray and keep it easily accessible.
+* ⚡ **Single instance** — Prevents multiple instances from running at the same time.
+* 🔗 **Smart link handling** — Qwen-related pages stay inside the application while external links open in your default browser.
+* 🔄 **Automatic updates** — Detect new versions and install updates directly from GitHub.
+* ⌨️ **Keyboard shortcuts** — Quickly create chats, reload the application, control zoom, open DevTools, and more.
+* 🎨 **Custom UI** — Frameless window, custom controls, styled scrollbars, and a dark startup background.
+* 🧹 **Easy logout** — Clear the local session and log out from the application.
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+)
-- npm
+## 🚀 Download
 
-### Install & Run
+Download the latest **Windows installer** from the GitHub Releases section.
+
+No separate Qwen installation is required.
+
+---
+
+## 🛠️ Development
+
+### Requirements
+
+* Windows
+* Node.js 18+
+* npm
+
+### Install
 
 ```bash
-cd "Qwen Desktop"
+git clone https://github.com/cuervodev/qwen-desktop.git
+cd qwen-desktop
 npm install
+```
+
+### Run
+
+```bash
 npm start
 ```
 
-### Build Installers
+### Build
+
+Create the Windows installer and portable build:
 
 ```bash
-# Windows (.exe installer + portable)
 npm run build:win
-
-# macOS (.dmg)
-npm run build:mac
-
-# Linux (AppImage + .deb)
-npm run build:linux
 ```
 
-Built installers will be in the `dist/` folder.
+The generated files will be available in the `dist/` directory.
 
-## 📁 Project Structure
-
-```
-Qwen Desktop/
-├── main.js          # Main Electron process
-├── preload.js       # Secure bridge between renderer and main
-├── updater.js       # Auto-update and version checking engine
-├── version.json     # Application version metadata
-├── CHANGELOG.md     # Release notes and history
-├── package.json     # Project config & build settings
-├── assets/
-│   ├── icon.png     # App icon (PNG, 512×512 recommended)
-│   ├── icon.ico     # Windows icon
-│   └── tray-icon.png
-└── dist/            # Built installers (after npm run build:*)
-```
+---
 
 ## ⌨️ Keyboard Shortcuts
 
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl+N` | New chat |
-| `Ctrl+Q` | Quit |
-| `Ctrl+R` | Reload |
-| `Ctrl+Shift+I` | DevTools |
-| `Ctrl++/-/0` | Zoom in/out/reset |
-| `F11` | Fullscreen |
+| Shortcut           | Action                |
+| ------------------ | --------------------- |
+| `Ctrl + N`         | New chat              |
+| `Ctrl + Q`         | Quit application      |
+| `Ctrl + R`         | Reload                |
+| `Ctrl + Shift + I` | Open DevTools         |
+| `Ctrl + + / - / 0` | Zoom in / out / reset |
+| `F11`              | Toggle fullscreen     |
+
+---
+
+## 🔄 Automatic Updates
+
+Qwen Desktop automatically checks for new releases when the application starts.
+
+Updates can also be checked manually from:
+
+**Help → Check for Updates...**
+
+When a new version is available, Qwen Desktop provides a visual download and installation process.
+
+Version information and release notes are managed through `version.json` and the project's GitHub releases.
+
+---
 
 ## 🔒 Privacy
 
-All data (cookies, localStorage, cache) is stored locally in your OS user data directory. Nothing is sent anywhere except to Qwen's own servers.
+Qwen Desktop stores application session data locally on your Windows user account, including cookies, local storage, and cache required by the Qwen web experience.
+
+Qwen Desktop does not provide its own AI backend or API. The application acts as a desktop client for Qwen's web services.
+
+---
+
+## 📁 Project Structure
+
+```text
+qwen-desktop/
+├── main.js              # Main Electron process
+├── preload.js           # Secure renderer/main bridge
+├── updater.js           # Update and version checking
+├── version.json         # Application version metadata
+├── CHANGELOG.md         # Release history
+├── package.json         # Project configuration
+├── assets/
+│   ├── icon.png         # Application icon
+│   ├── icon.ico         # Windows icon
+│   └── tray-icon.png    # System Tray icon
+└── dist/                # Generated Windows builds
+```
+
+---
+
+## 📋 Changelog
+
+See [`CHANGELOG.md`](./CHANGELOG.md) for the complete release history.
+
+---
+
+## 🐛 Issues & Feature Requests
+
+Found a bug or have an idea?
+
+Open an issue in the GitHub repository and include as much information as possible, such as:
+
+* Windows version
+* Qwen Desktop version
+* Steps to reproduce the issue
+* Screenshots or error messages
+* Expected vs. actual behavior
+
+---
+
+## 🤝 Contributing
+
+Contributions, bug reports, and feature suggestions are welcome.
+
+Before submitting a pull request:
+
+1. Make sure the application starts correctly.
+2. Test the affected functionality.
+3. Keep changes focused and documented.
+4. Update the changelog when appropriate.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+See [`LICENSE`](./LICENSE) for more information.
+
+---
+
+## ⭐ Support the Project
+
+If you find Qwen Desktop useful, consider giving the repository a **Star ⭐** on GitHub.
+
+It helps the project gain visibility and lets others discover it.
+
+---
+
+### Disclaimer
+
+Qwen Desktop is an independent, unofficial desktop client.
+
+Qwen Desktop is not affiliated with, sponsored by, or officially associated with Qwen or Alibaba.
+
+Qwen and related trademarks belong to their respective owners.
